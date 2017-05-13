@@ -1,0 +1,324 @@
+@import 'normalize.css';
+@import 'layout';
+@import 'slick';
+@import 'slick-theme';
+
+
+$slick-font-path: "../fonts/" !default;
+$slick-font-family: "slick" !default;
+$slick-loader-path: "../images/" !default;
+$slick-arrow-color: white !default;
+$slick-dot-color: grey !default;
+$slick-dot-color-active: $slick-dot-color !default;
+$slick-prev-character: "\2190" !default;
+$slick-next-character: "\2192" !default;
+$slick-dot-character: "\2022" !default;
+$slick-dot-size: 10px !default;
+$slick-opacity-default: 0.75 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 0.25 !default;
+
+$brand-primary: #000000;
+$location-color: #620808;
+$music-color: #a53f3f;
+$notes-color: #f4ce74;
+$books-color: #ffe9c1;
+$tendances-color: #d5441c;
+$link-color: #fff;
+
+@mixin link-fonts {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	background: inherit;
+}
+@mixin primary-fonts {
+	font-family: 'Source Sans Pro';
+	font-weight: 200;
+	// font-size: 35px;	
+	background: inherit;
+}
+html {
+	margin: 0;
+	padding: 0;
+}
+.ba-header {
+	height: 740px;
+	background: url(../images/img-1.png) no-repeat center center;
+
+}
+.ba-logo {
+	position: absolute;
+	top: 46px;
+
+}
+.ba-navigation {
+	&__list {
+		list-style-type: none;	
+		float: right;
+		padding-top: 30px;
+		padding-right: 77px;
+	}
+	&__item {
+		float: left;
+		transition: .1s ease-in;
+		border-radius: 19px;
+		& + & {
+			margin-left: 30px;	
+		}
+	}
+	&__link {
+		font-size: 24px;
+		text-decoration: none;
+		color: $link-color;
+		font-size: 16px;
+		@include link-fonts;
+		// transition: .2s ease-in;
+	}
+	&__link:focus {
+		border: 1px solid #fff;
+		border-radius: 15px;
+		padding-left: 18px;
+		padding-right: 18px;
+		padding-top: 9px;
+		padding-bottom: 9px;
+
+	}	
+	&__link:hover {
+		border: 1px solid rgba(255, 255, 255, 1);
+		border-radius: 15px;
+		padding-left: 18px;
+		padding-right: 18px;
+		padding-top: 9px;
+		padding-bottom: 9px;
+
+	}
+}
+.ba-main-info {
+	position: absolute;
+	text-align: center;
+	color: white;
+	top: 38%;
+	width: 88%;
+	
+	@include primary-fonts;
+}
+.ba-title {
+	font-size: 35px;
+	letter-spacing: .3em;
+	line-height: 1.1;
+	text-transform: uppercase;
+} 
+.ba-title__description {
+	letter-spacing: .2em;
+	@include link-fonts;
+	line-height: 1.1;
+}
+.ba-main-button {
+	text-align: center;
+	position: absolute;
+	top: 380px;
+	bottom: 0;
+	transition: .2s ease-in;
+	
+}
+.ba-main-button:hover {
+	opacity: 0.5;
+}
+.ba-team {
+	height: 771px;
+	padding-top: 54px;
+	&__title,
+	&__description {
+		text-align: center;
+	}
+	&__title {
+		@include primary-fonts;
+		font-weight: 200;
+		font-size: 20px;
+		letter-spacing: .2em;
+		text-transform: uppercase;
+	}
+	&__description {
+		@include link-fonts;
+		font-size: 14px;
+		
+	}
+}
+.ba-slide {
+	height: 439px;
+	padding-left: 169px;
+	outline: none;
+	&__text{
+		text-align: right;
+		&--description {
+			width: 300px;
+			text-align: right;
+			float: right;
+			&__text:after {
+				content: '/';
+				background-color: #19bd9a;
+				width: 4px;
+				height: 19px;
+			}
+		}
+	}
+}
+.ba-contact{
+	background: #0d0d0d url(../images/bg-contact.jpg) 50% no-repeat;
+	background-size: cover;
+	margin-top: 50px;
+	color: #fff;
+	padding-top: 50px;
+	padding-bottom: 57px;
+}
+.ba-contact__title {
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+}
+.ba-contact__button {
+	font-size: 16px;
+	cursor: pointer;
+	outline: none;
+	color: #fff;
+	line-height: 16px;
+	width: 140px;
+	height: 37px;
+	border-radius: 19px;
+	border: 1px solid #fff;
+	background-color: transparent;
+	margin: 29px auto 0 auto;
+	display: block;
+	transition: transform 0.1s ease-in, background-color 0.1s ease-in;
+	&:hover {
+		background-color: #fff;
+		color: #333b46;
+	}
+	&:focus {
+		outline: none;
+	}
+}
+.slick-dots li {
+	margin: 0;
+}
+.slick-dots li button {
+	padding: 0;
+	width: 10px;
+	height: 10px;
+}
+.slick-dots li button:before {
+	content: " ";
+	opacity: 1;
+	border-radius: 50%;
+	background-color: transparent;
+	border: 1px solid #19bd9a;
+	width: 10px;
+	height: 10px;
+}
+.slick-dots li.slick-active button:before,
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
+	background-color: #19bd9a;
+	border-radius: 50%;
+	opacity: 1;
+}
+.ba-testimonials {
+  background-color: #f3f3f3;
+  padding-bottom: 69px;
+  padding-top: 32px;
+ 
+}
+.ba-testimonials__slider-cont {
+  background-color: #fff;
+  padding-bottom: 68px;
+}
+.ba-testimonials__slider-item--left {
+  float: left;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 88px 35px 61px 100px;
+  display: inline-block;
+}
+.ba-testimonials__slider-item--right {
+  display: inline-block;
+  width: calc(100% - 400px);
+  float: right;
+  font-size: 16px;
+  line-height: 28px;
+  margin: 88px 100px 30px 35px;
+}
+.ba-testimonials__slider-item-cont:focus {
+  outline: none;
+}
+.ba-testimonials__slider-item-link {
+  margin-top: 20px;
+  text-decoration: none;
+  color:  #19bd9a;
+  line-height: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: text-shadow 0.1s ease-in;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  &:hover {
+    text-shadow: 1px 1px 1px #19bd9a, 0 0 1em #fff;
+  }
+}
+.ba-testimonials__slider-item-occupation {
+  color:  #464646;
+  font-size: 14px;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+.ba-testimonials .slick-dots {
+  padding-bottom:20px;
+  bottom: 30px
+}
+.ba-map{
+  height: 435px;
+  margin-top: 60px;
+}
+.ba-contact-us {
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 30px;
+}
+.ba-footer svg path {
+  fill: #323a45;
+}
+.ba-footer__logo{
+  text-align: center;
+  padding-top: 40px;
+}
+.ba-footer__social {
+  text-align: center;
+}
+.ba-footer__social a {
+  width: 26px;
+  height: 26px;
+  display: inline-block;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  margin: 2px;
+}
+.ba-social__fb {
+  background-color: #3b5998;
+}
+.ba-social__twitter {
+  background-color: #26a6d1;
+}
+.ba-social__in {
+  background-color: #0e76a8;
+}
+.ba-social__inst {
+  background-color: #3f729b;
+}
+.ba-social__v {
+  background-color: #86c9ef;
+}
